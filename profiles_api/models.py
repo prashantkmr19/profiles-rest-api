@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
+from django.contrib.auth.models import UserManager
 
 # Create your models here.
 
@@ -39,7 +40,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
-    #objects = UserProfileManager()
+    objects = UserProfileManger()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
